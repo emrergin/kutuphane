@@ -67,8 +67,9 @@ function Kitap(title, author, pages, read, score,endeks){
 
         let checkboks = document.createElement("INPUT");
         checkboks.setAttribute("type", "checkbox");
+        checkboks.setAttribute("autocomplete", "off");
         checkboks.classList.add('okunduboks');
-        read ? checkboks.checked= true : checkboks.checked = false;
+        this.read ? checkboks.checked= true : checkboks.checked = false;
         okundu.appendChild(checkboks);
         okundu.classList.add('okundu');
         satir.appendChild(okundu);
@@ -91,7 +92,9 @@ function Kitap(title, author, pages, read, score,endeks){
 }
 
 function okuToggle(e){
+    // console.log(Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read);
     e.target.checked ? Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read=true : Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read=false;
+    // console.log(Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read);
 }
 
 function veriSil(e){
