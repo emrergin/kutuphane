@@ -9,7 +9,45 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div id="form" class="uyuyor">
+        <form class="form-container">
+            <h1>Yeni Kitap</h1>
+            <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup_form -->
+            <div>
+                <label for="title"><b>Kitap Adı</b></label>
+                <input type="text" placeholder="Kitap Adı" name="title" id="y_baslik" required  oninvalid="this.setCustomValidity('Lütfen bir kitap adı girin.')">
+            </div>
+            <div>
+                <label for="title"><b>Yazar</b></label>
+                <input type="text" placeholder="Yazar" name="author" id="y_yazar" required oninvalid="this.setCustomValidity('Lütfen bir yazar adı girin.')">
+            </div>            
+            <div>
+                <label for="title"><b>Sayfa Sayısı</b></label>
+                <input type="text" placeholder="Sayfa Sayısı" id="y_sayfa" name="pages" size="5" required oninvalid="this.setCustomValidity('Lütfen sayfa sayısını girin.')">
+            </div>
+            <div>
+                <label for="title"><b>Okundu mu?</b></label>
+                <input type="checkbox" name="read" id="y_oku">
+            </div>
+            <div>
+                <label for="score"><b>Kaç Puan?</b></label>
+                <select name="score" id="y_skor">
+                    <option value="-">-</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>    
+        
+            <button type="submit" id="kaydet" onclick="yeniKaydet()">Kaydet</button>
+            <button type="button" id="kapat" onclick="closeForm()">Kapat</button>
+          </form>
+    </div>
     <div id="container">
+        <button id="kitapEkleDugmesi" onclick="openForm()">Yeni Kitap</button>
         <table id="KitapListesi"> 
             <tr>
                 <th>Kitap İsmi</th>
@@ -17,6 +55,7 @@
                 <th>Sayfa Sayısı</th>
                 <th>Okundu</th>
                 <th>Puan</th>
+                <th>Sil?</th>
             </tr>
         </table>
     </div>

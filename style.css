@@ -6,31 +6,106 @@ body{
     margin:0px;
 }
 
-tbody{
-	display: table-row-group;
-	vertical-align: top;
-	background-color: #2c2c2c;
-	border-color: inherit;
-    color: #dcddde;
-}
 
+table{
+    margin:0px;
+}
 table td{
     border:1px solid #666;
+    padding: 1vw;
+    /* margin-top:0px; */
     /* line-height: 40px; */
 }
 
-tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.03);
+table th{
+    padding: 1vw;
+    background-color: #2c2c2c;
+    color: #dcddde;
+}
+
+table th:first-child{
+    border-radius: 2vw 0 0 0;
+}
+
+table th:last-child{
+    background-color: red;
+    color: black;
+    border-radius: 0 2vw 0 0;
 }
 
 #container{
     display:flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     width: 100vw;
+    margin-top: 10vh;
+    /* height: 100vh; */
 }
 
-.okundu{
-    display: flex;
-    justify-content: center;
+.dugme,.okundu{
+    text-align: center;
+    vertical-align: middle;
+    /* padding:0px; */
 }
+
+/* .silDugmesi{ */
+    /* padding: auto; */
+    /* margin:0; */
+/* } */
+
+#kitapEkleDugmesi{
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    width: max(10vw,15vh);
+    border-radius: 2vmax 2vmax 0 0;
+    margin-bottom: 0px;
+}
+
+.aktif{
+    display: flex;
+    z-index: 9;
+    position: absolute;
+    top: 18vh;
+    left: 19vw;
+    width: 62vw;
+    background-color: #555;
+    padding: 4vmax;
+    /* flex-direction: column; */
+    gap: 1vmax;
+    align-items: center;
+    border-radius: 2vmax;
+    /* display: flex; */
+}
+
+.aktif h1{
+    color: #DFFFE9;
+}
+
+.uyuyor{
+    display:none;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+  #kaydet,#kapat{
+    /* background-color: #04AA6D; */
+    /* color: white; */
+    padding: 16px 20px;
+    margin: 1vh 0px;
+    border: none;
+    color: white;
+  }
+
+  #kaydet{
+      background-color: green;      
+  }
+
+  #kapat{
+      background-color: red;
+  }
