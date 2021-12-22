@@ -118,7 +118,7 @@ function closeForm(){
 
 function yeniKaydet(){ 
     if (yeniBaslik.value!==`` && yeniYazar.value!==``){
-        kitapEkle(yeniBaslik.value, yeniYazar.value, yeniSayfa.value, yeniOkundu.value, yeniSkor.value);
+        kitapEkle(yeniBaslik.value, yeniYazar.value, yeniSayfa.value, yeniOkundu.checked, yeniSkor.value);
         document.getElementById("form").classList.add(`uyuyor`);
         document.getElementById("form").classList.remove(`aktif`);
     }

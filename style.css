@@ -68,7 +68,8 @@ table th:last-child{
     display: flex;
     z-index: 9;
     position: absolute;
-    top: 18vh;
+    top: 14vh;
+    /* bottom: 0vh; */
     left: 19vw;
     width: 62vw;
     background-color: #555;
@@ -93,7 +94,7 @@ table th:last-child{
     flex-direction: column;
 }
 
-  #kaydet,#kapat{
+#kaydet,#kapat{
     /* background-color: #04AA6D; */
     /* color: white; */
     padding: 16px 20px;
@@ -102,10 +103,10 @@ table th:last-child{
     color: white;
   }
 
-  #kaydet{
+#kaydet{
       background-color: green;      
   }
 
-  #kapat{
+#kapat{
       background-color: red;
   }
