@@ -117,9 +117,11 @@ function closeForm(){
 }
 
 function yeniKaydet(){ 
-
-    kitapEkle(yeniBaslik.value, yeniYazar.value, yeniSayfa.value, yeniOkundu.value, yeniSkor.value);
-    // console.log("aceleetme");
+    if (yeniBaslik.value!==`` && yeniYazar.value!==``){
+        kitapEkle(yeniBaslik.value, yeniYazar.value, yeniSayfa.value, yeniOkundu.value, yeniSkor.value);
+        document.getElementById("form").classList.add(`uyuyor`);
+        document.getElementById("form").classList.remove(`aktif`);
+    }
 }
 
 kitapEkle("Beş Kere Halil", "Emre Ergin", 232, false, 5,0);
