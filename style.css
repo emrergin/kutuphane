@@ -71,6 +71,7 @@ table th:last-child{
     position: absolute;
     top: 14vh;
     /* bottom: 0vh; */
+    color: #DFFFE9;
     left: 19vw;
     width: 62vw;
     background-color: #555;
