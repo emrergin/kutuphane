@@ -10,7 +10,7 @@ const puanlar = [`-`,0,1,2,3,4,5];
 
 function kitapEkle(title, author, pages, read, score,endeks){
     Kutuphanem.push(new Kitap(title, author, pages, read, score,endeks));
-    // localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
+    localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
     TabloYaz();
     // eventBaslat(); 
 }
@@ -106,14 +106,14 @@ function veriSil(e){
     for (let i = 0; i < Kutuphanem.length; i++) { 
         Kutuphanem[i].indeks=i;
     }
-    // localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
+    localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
     TabloYaz();
     // eventBaslat();
 }
 
 function puanDegistir(e){
     Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].score=e.target.value;
-    // localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
+    localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
 }
 
 function openForm(){
@@ -142,18 +142,20 @@ function yeniKaydet(){
 
 function herSeyiSil(){
     Kutuphanem=[];
-    // localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
+    localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
     TabloYaz();
     // eventBaslat();
 }
 
 
-// if(JSON.parse(localStorage.getItem('ktphn'))) {
-//     Kutuphanem=JSON.parse(localStorage.getItem("ktphn"));
-//     TabloYaz();
-// }
-// else{
-kitapEkle("Beş Kere Halil", "Emre Ergin", 232, false, 5,0);
-kitapEkle("Kaybolduğun Sularda Yüzüyorum", "Elif Sena Ergin", 96, true, 5,1);
-// }
+if(JSON.parse(localStorage.getItem('ktphn'))) {
+    KaydedilmisKitaplar=JSON.parse(localStorage.getItem("ktphn"));
+    for (eskiKitap of KaydedilmisKitaplar){
+        kitapEkle(eskiKitap.title,eskiKitap.author,eskiKitap.pages,eskiKitap.read,eskiKitap.score);
+    }
+}
+else{
+    kitapEkle("Beş Kere Halil", "Emre Ergin", 232, false, 5,0);
+    kitapEkle("Kaybolduğun Sularda Yüzüyorum", "Elif Sena Ergin", 96, true, 5,1);
+}
 
