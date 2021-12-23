@@ -6,12 +6,13 @@ const yeniYazar = document.getElementById('y_yazar');
 const yeniSayfa = document.getElementById('y_sayfa');
 const yeniOkundu = document.getElementById('y_oku');
 const yeniSkor = document.getElementById('y_skor');
+const puanlar = [`-`,0,1,2,3,4,5];
 
 function kitapEkle(title, author, pages, read, score,endeks){
     Kutuphanem.push(new Kitap(title, author, pages, read, score,endeks));
 
     TabloYaz();
-    eventBaslat(); 
+    // eventBaslat(); 
 }
 
 function TabloYaz(){
@@ -21,17 +22,21 @@ function TabloYaz(){
     }   
 }
 
-function eventBaslat(){
-    let okundular = document.querySelectorAll(`.okunduboks`);
-    okundular.forEach((okundu) => {
-        okundu.addEventListener('click', okuToggle);
-      });
+// function eventBaslat(){
+    // let okundular = document.querySelectorAll(`.okunduboks`);
+    // okundular.forEach((okundu) => {
+    //     okundu.addEventListener('click', okuToggle);
+    //   });
     
-    let dugmeler = document.querySelectorAll(`.silDugmesi`);
-    dugmeler.forEach((sdugme) => {
-        sdugme.addEventListener('click', veriSil);
-      });
-}
+    // let dugmeler = document.querySelectorAll(`.silDugmesi`);
+    // dugmeler.forEach((sdugme) => {
+    //     sdugme.addEventListener('click', veriSil);
+    //   });
+    // let puanSeciciler = document.querySelectorAll(`.puanSec`);
+    // puanSeciciler.forEach((puansecici) => {
+    //     puansecici.addEventListener('change', puanDegistir);
+    //   });
+// }
 
 function Kitap(title, author, pages, read, score,endeks){
     this.title = title;
@@ -69,18 +74,31 @@ function Kitap(title, author, pages, read, score,endeks){
         checkboks.setAttribute("type", "checkbox");
         checkboks.setAttribute("autocomplete", "off");
         checkboks.classList.add('okunduboks');
+        checkboks.setAttribute("onclick","okuToggle(event)")
         this.read ? checkboks.checked= true : checkboks.checked = false;
         okundu.appendChild(checkboks);
         okundu.classList.add('okundu');
         satir.appendChild(okundu);
 
-        puan.textContent=this.score;
+        let selectList = document.createElement("select");
+        selectList.classList.add('puanSec');
+        selectList.setAttribute("onchange","puanDegistir(event)")
+        for (let i = 0; i < 7; i++) {
+            let option = document.createElement("option");
+            option.value = puanlar[i];
+            option.text = puanlar[i];
+            selectList.appendChild(option);
+        }
+        selectList.value=this.score;
+        puan.appendChild(selectList);
+        // puan.textContent=this.score;
         puan.classList.add('puan');
         satir.appendChild(puan);
 
         let carpi = document.createElement(`button`);
         carpi.textContent=`X`;
         carpi.classList.add('silDugmesi');
+        carpi.setAttribute("onclick","veriSil(event)")
         dugme.appendChild(carpi);
         dugme.classList.add('dugme');
         satir.appendChild(dugme);
@@ -92,9 +110,7 @@ function Kitap(title, author, pages, read, score,endeks){
 }
 
 function okuToggle(e){
-    // console.log(Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read);
     e.target.checked ? Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read=true : Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read=false;
-    // console.log(Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read);
 }
 
 function veriSil(e){
@@ -105,7 +121,11 @@ function veriSil(e){
         Kutuphanem[i].indeks=i;
     }
     TabloYaz();
-    eventBaslat();
+    // eventBaslat();
+}
+
+function puanDegistir(e){
+    Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].score=e.target.value;
 }
 
 function openForm(){
@@ -130,6 +150,12 @@ function yeniKaydet(){
         document.getElementById("form").classList.add(`uyuyor`);
         document.getElementById("form").classList.remove(`aktif`);
     }
+}
+
+function herSeyiSil(){
+    Kutuphanem=[];
+    TabloYaz();
+    // eventBaslat();
 }
 
 kitapEkle("Beş Kere Halil", "Emre Ergin", 232, false, 5,0);

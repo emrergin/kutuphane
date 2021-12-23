@@ -24,7 +24,7 @@
             </div>            
             <div>
                 <label for="title"><b>Sayfa Sayısı</b></label>
-                <input type="text" placeholder="Sayfa Sayısı" id="y_sayfa" name="pages" size="5">
+                <input type="number" placeholder="Sayfa Sayısı" id="y_sayfa" name="pages" size="5">
             </div>
             <div>
                 <label for="title"><b>Okundu mu?</b></label>
@@ -48,7 +48,10 @@
           </form>
     </div>
     <div id="container">
-        <button id="kitapEkleDugmesi" onclick="openForm()">Yeni Kitap</button>
+        <div id="anaDugmeler">
+            <button id="kitapEkleDugmesi" onclick="openForm()">Yeni Kitap</button>
+            <button id="temizleDugmesi" onclick="herSeyiSil()">Temizle</button>
+        </div>
         <table id="KitapListesi"> 
             <tr>
                 <th>Kitap İsmi</th>
