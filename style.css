@@ -69,7 +69,7 @@ table th:last-child{
     display: flex;
     z-index: 9;
     position: absolute;
-    top: 14vh;
+    top: 10vh;
     /* bottom: 0vh; */
     color: #DFFFE9;
     left: 19vw;
