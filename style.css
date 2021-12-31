@@ -13,8 +13,6 @@ table{
 table td{
     border:1px solid #666;
     padding: 1vw;
-    /* margin-top:0px; */
-    /* line-height: 40px; */
 }
 
 table th{
@@ -25,6 +23,12 @@ table th{
 
 table th:first-child{
     border-radius: 2vw 0 0 0;
+}
+
+table td:hover{
+    scale:1.1;
+    background-color:#FFFFCC;
+    transition-duration: 0.5s;
 }
 
 table th:last-child{
@@ -40,13 +44,11 @@ table th:last-child{
     justify-content: center;
     width: 100vw;
     margin-top: 10vh;
-    /* height: 100vh; */
 }
 
 .dugme,.okundu{
     text-align: center;
     vertical-align: middle;
-    /* padding:0px; */
 }
 
 
@@ -65,23 +67,32 @@ table th:last-child{
     margin-bottom: 0px;
 }
 
+#kitapEkleDugmesi:hover, #temizleDugmesi:hover{
+    scale:1.1 1;
+    background-color:#808080;
+    transition-duration: 0.5s;
+}
+
 .aktif{
     display: flex;
     z-index: 9;
     position: absolute;
     top: 10vh;
-    /* bottom: 0vh; */
     color: #DFFFE9;
     left: 19vw;
     width: 62vw;
     background-color: #555;
     padding: 4vmax;
-    /* flex-direction: column; */
     gap: 1vmax;
     align-items: center;
     justify-content: center;
     border-radius: 2vmax;
-    /* display: flex; */
+}
+
+.formpiece{
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5vmax;
 }
 
 .aktif h1{
@@ -95,11 +106,11 @@ table th:last-child{
 .form-container{
     display: flex;
     flex-direction: column;
+    /* width: 32vw; */
+    gap: 0.5vmax;
 }
 
 #kaydet,#kapat{
-    /* background-color: #04AA6D; */
-    /* color: white; */
     padding: 16px 20px;
     margin: 1vh 0px;
     border: none;
@@ -112,4 +123,5 @@ table th:last-child{
 
 #kapat{
       background-color: red;
-  }
+ }
+

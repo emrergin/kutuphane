@@ -22,18 +22,20 @@ function TabloYaz(){
     }   
 }
 
+class Kitap{
+    constructor(title,author,pages,read,score,endeks){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.score = score;
+        this.indeks=endeks;
+    }
 
-function Kitap(title, author, pages, read, score,endeks){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.score = score;
-    this.info = function(){
-        // return (title + ` by ` + author + `, ` + pages + `pages, ` + `${this.read ? "read" : "not read yet"}`);
+    info(){
         return ([title,author,pages,read, score]);
     }
-    this.tabloYaz = function(endeks){
+    tabloYaz(endeks){
         let satir= document.createElement('tr');
         let baslik= document.createElement('td');
         let yazar= document.createElement('td');
@@ -76,7 +78,6 @@ function Kitap(title, author, pages, read, score,endeks){
         }
         selectList.value=this.score;
         puan.appendChild(selectList);
-        // puan.textContent=this.score;
         puan.classList.add('puan');
         satir.appendChild(puan);
 
@@ -90,9 +91,9 @@ function Kitap(title, author, pages, read, score,endeks){
         
         satir.setAttribute(`data-endeks`,endeks);
         return satir;
-    }
-    this.indeks=endeks;
+    }    
 }
+
 
 function okuToggle(e){
     e.target.checked ? Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read=true : Kutuphanem[e.target.parentNode.parentNode.dataset.endeks].read=false;
@@ -100,7 +101,6 @@ function okuToggle(e){
 }
 
 function veriSil(e){
-    // console.log(e.target.parentNode.parentNode.dataset);
     Kutuphanem.splice(e.target.parentNode.parentNode.dataset.endeks, 1); 
     e.target.parentNode.parentNode.remove();
     for (let i = 0; i < Kutuphanem.length; i++) { 
@@ -108,7 +108,6 @@ function veriSil(e){
     }
     localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
     TabloYaz();
-    // eventBaslat();
 }
 
 function puanDegistir(e){
@@ -117,7 +116,6 @@ function puanDegistir(e){
 }
 
 function openForm(){
-    // console.log(`aceleye gerek yok`);
     document.getElementById("form").classList.add(`aktif`);
     document.getElementById("form").classList.remove(`uyuyor`);
 }
@@ -144,7 +142,6 @@ function herSeyiSil(){
     Kutuphanem=[];
     localStorage.setItem("ktphn", JSON.stringify(Kutuphanem));
     TabloYaz();
-    // eventBaslat();
 }
 
 
@@ -158,4 +155,3 @@ else{
     kitapEkle("Beş Kere Halil", "Emre Ergin", 232, false, 5,0);
     kitapEkle("Kaybolduğun Sularda Yüzüyorum", "Elif Sena Ergin", 96, true, 5,1);
 }
-
