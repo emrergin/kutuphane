@@ -115,6 +115,7 @@ table th:last-child{
     margin: 1vh 0px;
     border: none;
     color: white;
+    border-radius: 1vmin;
   }
 
 #kaydet{
@@ -124,4 +125,17 @@ table th:last-child{
 #kapat{
       background-color: red;
  }
+
+ #kaydet:hover{
+    scale:1.1;
+    background-color:#00CC33;
+    transition-duration: 0.5s;
+}
+
+#kapat:hover{
+    scale:1.1;
+    background-color:#CC3333;
+    transition-duration: 0.5s;
+}
+
 
