@@ -126,7 +126,8 @@ function closeForm(){
 }
 
 function yeniKaydet(){ 
-    if (yeniBaslik.value!==`` && yeniYazar.value!==``){
+    if (yeniBaslik.value!==`` && yeniYazar.value!==`` && !yeniSayfa.validity.badInput){
+        // && !yeniSayfa.validity.badInput
         kitapEkle(yeniBaslik.value, yeniYazar.value, yeniSayfa.value, yeniOkundu.checked, yeniSkor.value);
         yeniBaslik.value=``;
         yeniYazar.value=``;
@@ -135,6 +136,16 @@ function yeniKaydet(){
         yeniSkor.value=``;
         document.getElementById("form").classList.add(`uyuyor`);
         document.getElementById("form").classList.remove(`aktif`);
+    }
+    if (yeniBaslik.value===``){
+        yeniBaslik.reportValidity();
+    }
+    if (yeniYazar.value===``){
+        yeniYazar.reportValidity();
+    }
+    if (yeniSayfa.validity.badInput) {
+        yeniSayfa.setCustomValidity("Sayfa numarasını rakamlarla girin.");
+        yeniSayfa.reportValidity();
     }
 }
 

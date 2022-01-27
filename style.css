@@ -110,6 +110,10 @@ table th:last-child{
     gap: 0.5vmax;
 }
 
+input:invalid {
+    border: 2px dashed red;
+}
+
 #kaydet,#kapat{
     padding: 16px 20px;
     margin: 1vh 0px;
